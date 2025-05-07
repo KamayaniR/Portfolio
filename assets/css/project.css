@@ -880,30 +880,29 @@ SVG ANIMATIONS PROJECT PAGE
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  margin-top: 3rem;
   padding: 2rem;
 }
 
-/* Responsive scaling container */
+/* Let Tableau control full size */
 .dashboard-cell {
-  width: 100%;
-  max-width: 1300px;
-  aspect-ratio: 13 / 6; /* Matches 1300x600 */
-  position: relative;
+  width: auto;
   background-color: #1e1e1e;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  padding: 1rem;
 }
 
-.dashboard-cell .tableauPlaceholder,
+.dashboard-cell .tableauPlaceholder {
+  width: auto;
+  height: auto;
+}
+
 .dashboard-cell object.tableauViz {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
   display: block !important;
+  width: 1300px !important;  /* Optional: Tableau’s actual dashboard size */
+  height: 600px !important;
+  margin: 0 auto;
 }
 
 
