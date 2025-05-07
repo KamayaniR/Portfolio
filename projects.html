@@ -442,6 +442,16 @@ add
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="assets/js/project.js"></script>
 	<script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+	<script>
+  window.addEventListener("load", function () {
+    document.querySelectorAll(".tableauPlaceholder object").forEach(obj => {
+      obj.style.display = "block";
+      obj.style.width = "100%";
+      obj.style.height = "100%";
+    });
+  });
+</script>
+
 </body>
 
 </html>
