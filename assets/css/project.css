@@ -877,31 +877,28 @@ SVG ANIMATIONS PROJECT PAGE
 
 .dashboard-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding: 2rem;
 }
 
-/* Parent container allows horizontal scroll */
+/* Each dashboard expands fully and stacks vertically */
 .dashboard-cell {
-  overflow-x: auto;
-  max-width: 100%;
-  min-height: 620px;
-  position: relative;
+  width: 1300px;  /* Full native dashboard width */
+  height: 600px;
   background-color: #1e1e1e;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
-/* Tableau placeholder: set fixed size for native render */
 .dashboard-cell .tableauPlaceholder {
-  width: 1300px;  /* Native Tableau dashboard width */
-  height: 600px;
+  width: 100%;
+  height: 100%;
 }
 
-/* Force the Tableau object to render correctly */
 .dashboard-cell object.tableauViz {
   width: 100% !important;
   height: 100% !important;
