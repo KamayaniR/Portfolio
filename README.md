@@ -4,7 +4,7 @@ Visit my [Portfolio Website](https://kamayanirportfolio.netlify.app)
 
 ## Home Page:
 
-<p align="center"><img src="./readme_assets/main.png"></p>
+<p align="center"><img src="./readme_assets/preview1.png"></p>
 
 ## Education Page:
 
