@@ -226,9 +226,9 @@ let footer = $(`
 
 
 
-    <a class="social-button instagram" href="" target="_blank" >
+    <a class="social-button instagram" href="https://public.tableau.com/app/profile/kamayani.rai/vizzes" target="_blank" >
     <!-- svg code for instagram icon -->
-      <svg class="instagram-icon-footer" x="0px" y="0px" viewBox="0 0 202.5 202.5"
+      <svg class="tableau-icon-footer" x="0px" y="0px" viewBox="0 0 202.5 202.5"
         style="enable-background:new 0 0 202.5 202.5;">
         <circle id="littleCircle" class="st0" cx="101" cy="101.5" r="18.9" />
         <circle id="shutter" class="st0" cx="101" cy="101.5" r="8" />
