@@ -874,6 +874,13 @@ SVG ANIMATIONS PROJECT PAGE
 .social-icon svg {
   stroke: white;
 }
+
+.tableauPlaceholder object.tableauViz {
+  display: block !important;
+  width: 100% !important;
+  height: 500px !important;
+}
+
 .dashboard-grid {
   display: flex;
   flex-wrap: wrap;
@@ -885,7 +892,12 @@ SVG ANIMATIONS PROJECT PAGE
 .dashboard-cell {
   flex: 1 1 500px;
   max-width: 600px;
+  padding: 1rem;
+  background-color: #121212;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
+
 
 
 
