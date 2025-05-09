@@ -1,6 +1,6 @@
 ## Portfolio
 
-Visit my [Portfolio Website](https://kamayanirportfolio.netlify.app)
+Visit my [Portfolio Website](https://kamayanirportfolio.netlify.app) or [here](https://kamayanir.github.io/Portfolio/)
 
 ## Home Page:
 
