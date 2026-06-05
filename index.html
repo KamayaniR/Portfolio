@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamayani Rai</title>
+  <meta name="description" content="Kamayani Rai — ML Engineer with 3+ years building computer vision pipelines, RAG systems, and LLM-powered applications.">
+  <meta property="og:title" content="Kamayani Rai | Portfolio" />
+  <meta property="og:description" content="ML Engineer specializing in computer vision, RAG pipelines, and LLM-powered applications across healthcare and enterprise domains." />
+  <meta property="og:image" content="https://kamayanirai.github.io/Portfolio/assets/images/preview1.png" />
+  <meta property="og:url" content="https://kamayanirai.github.io/Portfolio" />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --surface2: #f0f2f5;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #656d76;
+      --accent: #7c3aed;
+      --accent-dim: rgba(124, 58, 237, 0.08);
+      --accent-hover: #6d28d9;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3rem 2rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; font-weight: 700; color: #fff; flex-shrink: 0;
+      letter-spacing: -1px; overflow: hidden;
+      border: 3px solid var(--border);
+    }
+    .avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
+      display: block; transform: scale(1.5); transform-origin: center 35%;
+    }
+    .avatar .initials { display: none; }
+    .avatar img.broken { display: none; }
+    .avatar img.broken + .initials { display: block; }
+
+    .header-text h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; color: var(--text); }
+    .header-text p { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .header-links { display: flex; gap: 0.6rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .header-links a {
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem; border-radius: 20px;
+      background: var(--surface);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .header-links a:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+
+    /* ── TABS ── */
+    .tabs-wrapper {
+      max-width: 900px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      background: var(--bg);
+    }
+    .tabs { display: flex; gap: 0; }
+    .tab-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); font-size: 0.88rem; font-weight: 500;
+      padding: 0.75rem 1.2rem; position: relative;
+      transition: color 0.2s; font-family: inherit;
+    }
+    .tab-btn::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 2px; background: var(--accent); transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .tab-btn.active { color: var(--accent); font-weight: 600; }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-btn:hover { color: var(--text); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .tab-panel { display: none; animation: fadeIn 0.22s ease; }
+    .tab-panel.active { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 0.75rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.25rem;
+    }
+
+    /* ── EXPERIENCE CARDS ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .exp-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(124,58,237,0.08); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .exp-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .exp-time { font-size: 0.75rem; color: var(--accent); white-space: nowrap; background: var(--accent-dim); padding: 0.2rem 0.65rem; border-radius: 20px; font-weight: 500; border: 1px solid rgba(124,58,237,0.2); }
+    .exp-place { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.85rem; }
+    .exp-card ul { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .exp-card li { font-size: 0.84rem; color: #444c56; line-height: 1.65; }
+
+    /* ── PROJECT CARDS ── */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(124,58,237,0.08); }
+    .project-card h3 { font-size: 0.92rem; font-weight: 600; line-height: 1.4; color: var(--text); }
+    .project-card p { font-size: 0.81rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .github-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      text-decoration: none; border: 1px solid rgba(124,58,237,0.4);
+      padding: 0.32rem 0.75rem; border-radius: 6px; align-self: flex-start;
+      background: var(--accent-dim);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .github-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .github-btn svg { width: 13px; height: 13px; fill: currentColor; }
+
+    /* ── EDUCATION ── */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .edu-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(124,58,237,0.08); }
+    .edu-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.8rem; border: 1px solid rgba(124,58,237,0.2); }
+    .edu-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+    .edu-card h4 { font-size: 0.82rem; color: var(--muted); font-weight: 400; margin-bottom: 0.75rem; line-height: 1.5; }
+    .edu-card ul { padding-left: 1.1rem; }
+    .edu-card li { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin-top: 0.3rem; }
+
+    /* ── SKILLS ── */
+    .skill-groups { display: flex; flex-direction: column; gap: 1.5rem; }
+    .skill-group h3 { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .skill-tag {
+      font-size: 0.8rem; font-weight: 500; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 0.28rem 0.72rem; border-radius: 20px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); cursor: default; }
+
+    /* ── ARTICLES ── */
+    .article-list { display: flex; flex-direction: column; gap: 1rem; }
+    .article-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .article-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(124,58,237,0.08); }
+    .article-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .article-pub { font-size: 0.72rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 0.18rem 0.55rem; border-radius: 20px; border: 1px solid rgba(124,58,237,0.2); text-transform: uppercase; letter-spacing: 0.05em; }
+    .article-card h3 { font-size: 1rem; font-weight: 600; line-height: 1.4; color: var(--text); }
+    .article-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+    .read-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      text-decoration: none; border: 1px solid rgba(124,58,237,0.4);
+      padding: 0.32rem 0.75rem; border-radius: 6px; align-self: flex-start;
+      background: var(--accent-dim);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .read-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .read-btn svg { width: 13px; height: 13px; fill: currentColor; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.25rem 1.5rem; }
+      .tabs-wrapper { padding: 0 1.25rem; overflow-x: auto; }
+      .content { padding: 2rem 1.25rem 3rem; }
+      .tab-btn { padding: 0.75rem 0.85rem; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="avatar">
+      <img src="assets/images/profile.JPG" alt="Kamayani Rai"
+           onerror="this.classList.add('broken')">
+      <span class="initials">KR</span>
+    </div>
+    <div class="header-text">
+      <h1>Kamayani Rai</h1>
+      <p>Applied Data & Machine Learning Engineer</p>
+      <div class="header-links">
+        <a href="https://github.com/KamayaniR" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/kamayanirai" target="_blank">LinkedIn</a>
+        <a href="https://public.tableau.com/app/profile/kamayani.rai/vizzes" target="_blank">Tableau</a>
+        <a href="https://medium.com/@kamayanirai78" target="_blank">Medium</a>
+        <a href="mailto:kamayanirai78@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs-wrapper">
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="experience" role="tab">Experience</button>
+      <button class="tab-btn" data-tab="projects" role="tab">Projects</button>
+      <button class="tab-btn" data-tab="education" role="tab">Education</button>
+      <button class="tab-btn" data-tab="skills" role="tab">Skills</button>
+      <button class="tab-btn" data-tab="articles" role="tab">Articles</button>
+    </nav>
+  </div>
+
+  <main class="content">
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="tab-panel active" role="tabpanel">
+      <p class="section-title">Work Experience</p>
+      <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">AI Data Engineer (Contract)</span>
+            <span class="exp-time">Apr 2026 – Present</span>
+          </div>
+          <p class="exp-place">Handshake</p>
+          <ul>
+            <li>Contributed human preference annotations to RLHF training pipelines by running blinded side-by-side evaluations of frontier LLM outputs across 10+ multi-stage agentic coding tasks (Docker, OpenCode); scored responses on correctness, agent behaviour, communication quality, and code style; preference scores fed directly into reward model training across Python, FastAPI, and SQL.</li>
+            
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">ML Research Engineer</span>
+            <span class="exp-time">Dec 2024 – Mar 2026</span>
+          </div>
+          <p class="exp-place">Arizona State University</p>
+          <ul>
+            <li>Managed end-to-end ML lifecycle across distributed YOLOv8 and Faster R-CNN training jobs on Sol via SLURM; implemented fault-tolerant checkpointing to handle mid-run interruptions on shared cluster resources.</li>
+            <li>Built a DICOM preprocessing pipeline (CLAHE normalization, study-level train/val splitting) with DVC versioning to track dataset snapshots against model checkpoints across training rounds.</li>
+            <li>Implemented a semi-supervised self-training loop using CVAT-annotated data; generated pseudo-labels from high-confidence predictions and retrained across two rounds, improving mAP from 0.54 to 0.82.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">Software Engineer</span>
+            <span class="exp-time">Mar 2022 – Sep 2023</span>
+          </div>
+          <p class="exp-place">DXC Technology</p>
+          <ul>
+            <li>Built Python validation scripts on AWS Lambda to catch billing and tax logic errors across millions of DirecTV subscriber records before invoicing; reduced manual review effort by 50%.</li>
+            <li>Tested API performance under simulated high-concurrency load on DirecTV's subscriber platform; identified bottlenecks in request handling and data retrieval, reducing response latency by 35%.</li>
+            <li>Integrated automated schema and business rule validation into CI/CD pipelines; prevented revenue-impacting bugs from reaching production on every release.</li>
+            <li>Built Snowflake dashboards tracking SLA compliance, error rates, and billing anomalies; surfaced recurring failure patterns in weekly leadership reports, reducing defect resolution time by 15%.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="tab-panel" role="tabpanel">
+      <p class="section-title">Projects</p>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>Deal Sight AI: M&amp;A Due Diligence Pipeline</h3>
+          <p>Five-stage M&amp;A due diligence pipeline using Claude API, FastAPI, and React; automated CIM analysis, EBITDA normalization, LOI generation, and agreement review — reduced a 4-hour analyst workflow to under 60 seconds per stage.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>ClinicalRAG: Medical Document Q&amp;A Pipeline</h3>
+          <p>RAG pipeline for clinical document Q&amp;A using ChromaDB, sentence-transformer embeddings, and cross-encoder reranking; serves cited answers with faithfulness scoring and sub-100ms concurrent inference.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>OrbitShield: Geospatial Collision Risk Forecasting</h3>
+          <p>Collision risk forecasting system on 845K+ satellite records using DBSCAN clustering, PostGIS, and an XGBoost/RF/LSTM ensemble; engineered orbital trajectory features for risk classification and time-series prediction.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR/Datathon" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>HonorHealth: Surgical Implant Inventory Optimization</h3>
+          <p>Applied Holt-Winters and LSTM time-series forecasting across 13,000+ purchase orders to predict demand and identify $30K+ in excess inventory; built Tableau dashboards tracking procurement patterns across six hospitals.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Real-Time Multi-Tenant Feature Platform</h3>
+          <p>Continuously computes user-level features from streaming events and serves them with low latency for ML models, personalization engines, and analytics systems.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR/Real-Time-Multi-Tenant-Feature-Platform" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>ChipSafe: Ingredient Warnings via OCR &amp; CV</h3>
+          <p>AI-powered web app that processes uploaded food label images using OCR and computer vision, extracts ingredient lists, and alerts users to harmful or allergenic items in real-time.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR/ChipSafe-Real-Time-Ingredient-Warnings-Using-OCR-and-Computer-Vision" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Music Data ETL Pipeline with Spotify API</h3>
+          <p>End-to-end data engineering pipeline extracting new music releases from Spotify Web API, processed with Python and pandas, loaded into PostgreSQL on Supabase, orchestrated with Apache Airflow on a daily schedule.</p>
+          <a class="github-btn" href="https://github.com/KamayaniR/Music-Data-ETL-Pipeline-with-Spotify-API" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="tab-panel" role="tabpanel">
+      <p class="section-title">Education</p>
+      <div class="edu-grid">
+
+        <div class="edu-card">
+          <span class="edu-badge">2025 · GPA 4.0</span>
+          <h3>Arizona State University</h3>
+          <h4>M.S. Business Analytics (Big Data) — W. P. Carey School of Business</h4>
+          <ul>
+            <li>Machine Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Business Process Analytics</li>
+            <li>Analytical Decision Modelling</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <span class="edu-badge">2022 · GPA 3.68</span>
+          <h3>Christ University</h3>
+          <h4>B.Tech, Electronics &amp; Communication Engineering (Intelligent Systems)</h4>
+          <ul>
+            <li>OpenCV &amp; Image Processing</li>
+            <li>Probability &amp; Queuing Theory</li>
+            <li>Intelligent Systems specialization</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="tab-panel" role="tabpanel">
+      <p class="section-title">Skills</p>
+      <div class="skill-groups">
+
+        <div class="skill-group">
+          <h3>Programming &amp; Frameworks</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL (PostgreSQL)</span>
+            <span class="skill-tag">PySpark</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Pydantic</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Machine Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">YOLOv8</span>
+            <span class="skill-tag">Faster R-CNN</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">Semi-Supervised Learning</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">Random Forest</span>
+            <span class="skill-tag">ARIMA</span>
+            <span class="skill-tag">Time-Series Forecasting</span>
+            <span class="skill-tag">Feature Engineering</span>
+            <span class="skill-tag">Distributed Training</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>ML Systems &amp; Data Engineering</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">Apache Airflow</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">AWS (S3, Lambda, SageMaker, Athena)</span>
+            <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">SLURM</span>
+            <span class="skill-tag">DVC</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>LLMs &amp; Analytics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">LLM APIs (Claude)</span>
+            <span class="skill-tag">RAG Pipelines</span>
+            <span class="skill-tag">Agentic Workflows</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">ChromaDB</span>
+            <span class="skill-tag">Sentence Transformers</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">CVAT</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section id="articles" class="tab-panel" role="tabpanel">
+      <p class="section-title">Published Articles</p>
+      <div class="article-list">
+
+        <div class="article-card">
+          <div class="article-meta">
+            <span class="article-pub">Medium</span>
+          </div>
+          <h3>I Built a Breast Cancer Detection System End-to-End</h3>
+          <p>A technical walkthrough of building a complete breast cancer detection pipeline — from raw DICOM mammography data through YOLOv8 training, precision-recall tuning, and Grad-CAM visualization for clinical validation.</p>
+          <a class="read-btn" href="https://medium.com/@kamayanirai78/i-built-a-breast-cancer-detection-system-end-to-end-48402465aae9" target="_blank">
+            <svg viewBox="0 0 16 16"><path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/></svg>
+            Read on Medium
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        btns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
