@@ -1,5 +1,5 @@
 
-**Live:** [kamayanir.github.io/Portfolio](https://kamayanir.github.io/Portfolio/)
+**Live:** [kamayanir.github.io/Kamayani_Portfolio](https://kamayanir.github.io/Kamayani_Portfolio/)
 
 ## Sections
 
